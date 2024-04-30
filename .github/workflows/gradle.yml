@@ -69,7 +69,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }} # EC2 인스턴스 퍼블릭 DNS
-        username: ubuntu
+        username: ${{ secrets.EC2_USER }} # EC2 user
         key: ${{ secrets.PRIVATE_KEY }} # pem 키
         # 도커 작업
         script: |
