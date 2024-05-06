@@ -1,4 +1,4 @@
-version: "3"	#docker version 3 사용
+version: "3.9"	#docker version 3.9 사용
 services: 	#service들 정의
   database: 	#service 이름
     image: mysql	#불러올 image
@@ -30,5 +30,22 @@ services: 	#service들 정의
       SPRING_PROFILES_ACTIVE: dev		#사용할 profile 지정
     networks:
       - test_network
+  rabbitmq:
+    image: rabbitmq:3.13.1
+    container_name: rabbitmq-stream
+    volumes:
+      - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "RabbitMQ-My-Cookies"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "1234"
+    networks:
+      - test_network
+
 networks:	#네트워크 설정
     test_network:
