@@ -1,0 +1,14 @@
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://database-1.ciow89fatena.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+        username: admin
+        password: myunga2275
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: admin
+        password: 1234
+api-key:
+    header: X-API-KEY
+    key: myunga

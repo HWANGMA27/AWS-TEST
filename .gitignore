@@ -38,3 +38,10 @@ out/
 
 ### Custom ###
 gradlew.bat
+
+### docker ###
+.docker/
+
+### db ###
+db/
+
